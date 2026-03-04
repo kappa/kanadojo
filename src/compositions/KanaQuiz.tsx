@@ -65,7 +65,7 @@ export const KanaQuiz: React.FC<KanaQuizProps> = ({ char }) => {
       <div
         style={{
           fontSize: 180,
-          fontFamily: font.japanese,
+          fontFamily: (char.codePointAt(0) ?? 0) >= 0x0c00 && (char.codePointAt(0) ?? 0) <= 0x0c7f ? font.telugu : font.japanese,
           fontWeight: font.weightBold,
           color: colors.character,
           lineHeight: 1,

@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { Player } from "@remotion/player";
 import { hiragana, hiraganaGroups } from "../data/hiragana";
 import { katakana, katakanaGroups } from "../data/katakana";
+import { telugu, teluguGroups } from "../data/telugu";
 import { KanaIntro } from "../compositions/KanaIntro";
 import { colors, font, timing } from "../styles/tokens";
 import { speakChar, speakWord } from "../utils/speech";
@@ -12,8 +13,8 @@ interface Props {
 }
 
 export const LearnPage: React.FC<Props> = ({ kanaMode }) => {
-  const chars = kanaMode === "hiragana" ? hiragana : katakana;
-  const groups = kanaMode === "hiragana" ? hiraganaGroups : katakanaGroups;
+  const chars = kanaMode === "hiragana" ? hiragana : kanaMode === "katakana" ? katakana : telugu;
+  const groups = kanaMode === "hiragana" ? hiraganaGroups : kanaMode === "katakana" ? katakanaGroups : teluguGroups;
 
   const [groupIdx, setGroupIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
@@ -162,7 +163,7 @@ export const LearnPage: React.FC<Props> = ({ kanaMode }) => {
             🔊 {currentChar.char}
           </button>
           <button
-            onClick={() => speakWord(currentChar.romaji, kanaMode)}
+            onClick={() => speakWord(kanaMode === "telugu" ? currentChar.exampleWord : currentChar.romaji, kanaMode)}
             style={actionBtn}
             aria-label={`Hear example word ${currentChar.exampleWord}`}
           >

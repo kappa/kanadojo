@@ -95,7 +95,7 @@ export const KanaIntro: React.FC<KanaIntroProps> = ({ kana }) => {
           <div
             style={{
               fontSize: 110,
-              fontFamily: font.japanese,
+              fontFamily: kana.type === "telugu" ? font.telugu : font.japanese,
               fontWeight: font.weightBold,
               color: colors.character,
               lineHeight: 1,
@@ -126,7 +126,7 @@ export const KanaIntro: React.FC<KanaIntroProps> = ({ kana }) => {
         <FadeUp delay={18}>
           <div
             style={{
-              fontFamily: font.japanese,
+              fontFamily: font.mono,
               fontSize: 14,
               color: colors.character,
               lineHeight: 1.6,
@@ -153,7 +153,7 @@ export const KanaIntro: React.FC<KanaIntroProps> = ({ kana }) => {
           >
             <span
               style={{
-                fontFamily: font.japanese,
+                fontFamily: kana.type === "telugu" ? font.telugu : font.japanese,
                 fontSize: 20,
                 color: colors.character,
                 whiteSpace: "nowrap",

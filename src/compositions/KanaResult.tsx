@@ -137,7 +137,7 @@ export const KanaResult: React.FC<KanaResultProps> = ({
           <div
             style={{
               fontSize: 110,
-              fontFamily: font.japanese,
+              fontFamily: kana.type === "telugu" ? font.telugu : font.japanese,
               fontWeight: font.weightBold,
               color: colors.character,
               lineHeight: 1,
@@ -195,7 +195,7 @@ export const KanaResult: React.FC<KanaResultProps> = ({
           <div
             style={{
               marginTop: 8,
-              fontFamily: font.japanese,
+              fontFamily: font.mono,
               fontSize: 14,
               color: colors.romaji,
               lineHeight: 1.5,

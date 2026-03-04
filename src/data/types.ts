@@ -1,8 +1,8 @@
 export interface KanaChar {
   char: string;
   romaji: string;
-  type: "hiragana" | "katakana";
-  group: string; // vowel, k, s, t, n, h, m, y, r, w
+  type: "hiragana" | "katakana" | "telugu";
+  group: string; // vowel, k, s, t, n, h, m, y, r, w / vowel, ka, ca, ta_r, ta, pa, ya, sha, special
   mnemonic: string;
   mnemonicImage?: string; // path to nano-banana generated image
   exampleWord: string;
@@ -31,6 +31,6 @@ export interface BeltInfo {
   color: string;
 }
 
-export type KanaMode = "hiragana" | "katakana";
+export type KanaMode = "hiragana" | "katakana" | "telugu";
 
 export type Page = "learn" | "quiz" | "progress" | "about";

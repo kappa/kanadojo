@@ -1,5 +1,6 @@
 import { hiragana, hiraganaGroups } from "../data/hiragana";
 import { katakana, katakanaGroups } from "../data/katakana";
+import { telugu, teluguGroups } from "../data/telugu";
 import { colors, font } from "../styles/tokens";
 import {
   getAllRecords,
@@ -17,6 +18,7 @@ interface CharGridProps {
   chars: KanaChar[];
   groups: { id: string; label: string; chars: string }[];
   records: Record<string, import("../data/types").ReviewRecord>;
+  charFont?: string;
 }
 
 const CharGrid: React.FC<CharGridProps> = ({
@@ -24,6 +26,7 @@ const CharGrid: React.FC<CharGridProps> = ({
   chars,
   groups,
   records,
+  charFont,
 }) => (
   <div style={{ marginBottom: 24 }}>
     <h2
@@ -75,7 +78,7 @@ const CharGrid: React.FC<CharGridProps> = ({
                   background: bg,
                   borderRadius: 6,
                   fontSize: 22,
-                  fontFamily: font.japanese,
+                  fontFamily: charFont ?? font.japanese,
                   color: mastered || seen ? "#fff" : colors.romaji,
                   lineHeight: 1,
                 }}
@@ -256,6 +259,17 @@ export const ProgressPage: React.FC = () => {
           chars={katakana}
           groups={katakanaGroups}
           records={records}
+        />
+      </div>
+
+      {/* Telugu grid — full width */}
+      <div style={{ marginTop: 32 }}>
+        <CharGrid
+          title="Telugu Overview"
+          chars={telugu}
+          groups={teluguGroups}
+          records={records}
+          charFont={font.telugu}
         />
       </div>
 

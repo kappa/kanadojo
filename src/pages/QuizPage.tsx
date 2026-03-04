@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Player } from "@remotion/player";
 import { hiragana } from "../data/hiragana";
 import { katakana } from "../data/katakana";
+import { telugu } from "../data/telugu";
 import { colors, font, timing } from "../styles/tokens";
 import { review, isDue, createRecord } from "../srs/sm2";
 import {
@@ -29,7 +30,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 function getQuizQueue(mode: KanaMode): KanaChar[] {
-  const chars = mode === "hiragana" ? hiragana : katakana;
+  const chars = mode === "hiragana" ? hiragana : mode === "katakana" ? katakana : telugu;
   const records = getAllRecords();
 
   // Priority 1: due for review

@@ -22,6 +22,7 @@ export const colors = {
 
 export const font = {
   japanese: "'Noto Sans JP', sans-serif",
+  telugu: "'Noto Sans Telugu', sans-serif",
   mono: "'JetBrains Mono', monospace",
   weightBold: 700,
   weightRegular: 400,

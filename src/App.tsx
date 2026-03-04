@@ -70,7 +70,7 @@ const App: React.FC = () => {
 
         {/* Kana mode toggle */}
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-          {(["hiragana", "katakana"] as KanaMode[]).map((mode, i) => (
+          {(["hiragana", "katakana", "telugu"] as KanaMode[]).map((mode, i) => (
             <span key={mode} style={{ display: "flex", alignItems: "center" }}>
               {i > 0 && (
                 <span
@@ -92,13 +92,13 @@ const App: React.FC = () => {
                   border: "none",
                   background: "none",
                   color: kanaMode === mode ? colors.accent : colors.romaji,
-                  fontFamily: font.mono,
+                  fontFamily: mode === "telugu" ? font.telugu : font.mono,
                   fontSize: 15,
                   fontWeight: kanaMode === mode ? 700 : 400,
                   cursor: "pointer",
                 }}
               >
-                {mode === "hiragana" ? "あ Hiragana" : "ア Katakana"}
+                {mode === "hiragana" ? "あ Hiragana" : mode === "katakana" ? "ア Katakana" : "అ Telugu"}
               </button>
             </span>
           ))}
